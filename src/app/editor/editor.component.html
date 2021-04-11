@@ -1,0 +1,18 @@
+<section id="code-editor">
+	<div class="container">
+		<div class="col">
+			<div class="row">
+				<h1>Line numbering using &lt;textarea&gt;</h1>
+				<div>
+					<textarea class="rownr" rows="25" cols="3" readonly>{{line}}</textarea>
+					<span>
+						<textarea class="txt" rows="25" cols="3" nowrap="nowrap" wrap="off"
+						autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"
+						onclick="selectionchanged(this)" onkeyup="keyup(this, event)" oninput="input_changed(this)" onscroll="scroll_changed(this)"></textarea><br/><br/>
+						<label>Current position: </label><input id="sel_in" style="border-style:none" readonly>
+					</span>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
