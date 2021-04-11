@@ -1,18 +1,40 @@
 <section id="code-editor">
 	<div class="container">
-		<div class="col">
-			<div class="row">
-				<h1>Line numbering using &lt;textarea&gt;</h1>
+		<div class="row">
+			<div class="col">
+				<h3 class="text-center text-secondary">{{title}}</h3>
 				<div>
-					<textarea class="rownr" rows="25" cols="3" readonly>{{line}}</textarea>
-					<span>
-						<textarea class="txt" rows="25" cols="3" nowrap="nowrap" wrap="off"
-						autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"
-						onclick="selectionchanged(this)" onkeyup="keyup(this, event)" oninput="input_changed(this)" onscroll="scroll_changed(this)"></textarea><br/><br/>
-						<label>Current position: </label><input id="sel_in" style="border-style:none" readonly>
-					</span>
+					<form>
+						<div class="row">
+							<div class="col">
+								<textarea class="rownr" rows="25" cols="3" readonly></textarea>
+								<span>
+									<textarea class="txt" rows="25" cols="3" nowrap="nowrap" wrap="off"
+									autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"
+									onclick="selectionchanged(this)" onkeyup="keyup(this, event)" oninput="input_changed(this)" onscroll="scroll_changed(this)"></textarea>
+								</span>
+							</div>
+						</div>
+
+						<div class="row my-0">
+							<div class="col d-flex justify-content-end my-0">
+								<span class="badge bg-danger">
+									<p class="my-0 fs-6 text" id="info">Posicion actual: (0,0)</p>
+								</span>
+							</div>
+						</div>
+
+						<div class="row text-center">
+							<div class="col-4 offset-4 d-grid">
+								<button type="button" class="btn btn-primary btn-lg btn-block">Compilar</button>
+							</div>
+						</div>
+					</form>
+
 				</div>
 			</div>
 		</div>
+
+
 	</div>
 </section>

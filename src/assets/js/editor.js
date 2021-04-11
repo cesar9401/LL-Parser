@@ -1,5 +1,3 @@
-let cntline;
-
 function keyup(obj, e) {
   if (e.keyCode >= 33 && e.keyCode <= 40)
     // arrows ; home ; end ; page up/down
@@ -20,7 +18,9 @@ function selectionchanged(obj) {
     col = substr[substr.length - 1].length;
     tmpstr += " - (" + row.toString() + "," + col.toString() + ")";
   }
-  obj.parentElement.getElementsByTagName("input")[0].value = tmpstr;
+	let p = document.getElementById("info");
+	p.innerHTML = "Posicion actual: " + tmpstr;
+  //obj.parentElement.getElementsByTagName("input")[0].value = tmpstr;
 }
 
 function input_changed(obj_txt) {
