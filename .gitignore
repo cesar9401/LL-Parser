@@ -44,3 +44,6 @@ testem.log
 # System Files
 .DS_Store
 Thumbs.db
+
+# my-sh-file
+src/assets/js/jison/jison.sh
