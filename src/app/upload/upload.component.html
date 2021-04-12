@@ -1,0 +1,10 @@
+<form>
+	<div class="row my-3">
+		<div class="col">
+			<!--
+			<input type="text" name="data" class="form-control" [(ngModel)]="model.input"  placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+			-->
+			<input class="form-control" name="data" (change)="onFileSelect($event.target)" type="file" id="formFile">
+		</div>
+	</div>
+</form>
