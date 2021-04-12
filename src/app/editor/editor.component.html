@@ -4,14 +4,16 @@
 			<div class="col">
 				<h3 class="text-center text-secondary">{{title}}</h3>
 				<div>
+					<!--
 					<form>
+						-->
 						<div class="row">
 							<div class="col">
 								<textarea class="rownr" rows="25" cols="3" readonly></textarea>
 								<span>
-									<textarea class="txt" rows="25" cols="3" nowrap="nowrap" wrap="off"
+									<textarea [(ngModel)]="text" class="txt" rows="25" cols="3" nowrap="nowrap" wrap="off"
 									autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"
-									onclick="selectionchanged(this)" onkeyup="keyup(this, event)" oninput="input_changed(this)" onscroll="scroll_changed(this)"></textarea>
+									onclick="selectionchanged(this)" onkeyup="keyup(this, event)" onmousemove="input_changed(this)" oninput="input_changed(this)" onscroll="scroll_changed(this)"></textarea>
 								</span>
 							</div>
 						</div>
@@ -29,8 +31,9 @@
 								<button type="button" class="btn btn-primary btn-lg btn-block">Compilar</button>
 							</div>
 						</div>
+						<!--
 					</form>
-
+					-->
 				</div>
 			</div>
 		</div>

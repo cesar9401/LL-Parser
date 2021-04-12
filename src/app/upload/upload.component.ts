@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-upload',
@@ -7,7 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UploadComponent implements OnInit {
 
-	wisonContent: any;
+	@Output() setData: EventEmitter<any> = new EventEmitter();
+
 	texto: string;
 
   constructor() { }
@@ -30,6 +31,7 @@ export class UploadComponent implements OnInit {
 
 	setValue(data) {
 		this.texto = data;
-		console.log(this.texto);
+		//console.log(this.texto);
+		this.setData.emit(this.texto);
 	}
 }

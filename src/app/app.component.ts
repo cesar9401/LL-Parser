@@ -7,4 +7,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'LL-Parser';
+	texto = "";
+
+	getData(data: string) {
+		this.texto = data;
+		//console.log(`Recibimos ${data}`);
+	}
 }
