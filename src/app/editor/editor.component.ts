@@ -27,8 +27,6 @@ export class EditorComponent implements OnInit {
 			try {
 				let Production = wison.parse(this.text);
 				console.log(Production);
-
-				console.log(`Fila: ${Production.line}, Columna: ${Production.column}`);
 			}catch(error) {
 				console.log(error);
 			}
