@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import {Production} from '../../assets/ts/production';
 import {ProductionContainer} from '../../assets/ts/productionContainer';
+//import { parser } from '../../assets/js/jison/wison';
 
 //var Parser = require("../../assets/js/wison.js");
 
@@ -20,7 +21,7 @@ export class EditorComponent implements OnInit {
 	constructor() { }
 
 	ngOnInit(): void {
-		//console.log(Parser);
+		console.log(wison);
 	}
 
 	readText() {

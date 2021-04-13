@@ -7,4 +7,3 @@ var Production = /** @class */ (function () {
     return Production;
 }());
 exports.Production = Production;
-//export default Production;

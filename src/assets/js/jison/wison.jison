@@ -66,11 +66,8 @@ inputNoSpace			[^\n\r\s\t\f]+
 
 /* Imports */
 %{
-	//import {Production} from '../../ts/production.js';
-	//import {ProductionContainer} from '../../ts/productionContainer.js';
-
-	const Production = require('../../ts/production');
-	const ProductionContainer = require('../../ts/productionContainer');
+	// const Production = require('../../ts/production.js');
+	// import {ProductionContainer} from '../../ts/productionContainer.js';
 %}
 
 /* associatios and precedence */

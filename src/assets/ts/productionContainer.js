@@ -7,4 +7,3 @@ var ProductionContainer = /** @class */ (function () {
     return ProductionContainer;
 }());
 exports.ProductionContainer = ProductionContainer;
-//export default ProductionContainer;
