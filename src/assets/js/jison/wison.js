@@ -85,7 +85,8 @@ var $0 = $$.length - 1;
 switch (yystate) {
 case 1:
 
-			return $$[$0-1];
+			let p = new Production($$[$0-1], this._$.first_line, this._$.first_column);
+			return p;
 		
 break;
 case 2:
@@ -403,6 +404,14 @@ _handle_error:
 
     return true;
 }};
+
+	console.log("shit");
+
+	let Production = function(name, line, column) {
+		this.name = name;
+		this.line = line;
+		this.column = column;
+	}
 
 	// const Production = require('../../ts/production.js');
 	// import {ProductionContainer} from '../../ts/productionContainer.js';

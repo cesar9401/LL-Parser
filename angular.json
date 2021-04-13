@@ -27,9 +27,7 @@
               "src/styles.css"
             ],
             "scripts": [
-							"src/assets/js/jison/wison.js",
-							"src/assets/ts/production.js",
-							"src/assets/ts/productionContainer.js"
+							"src/assets/js/jison/wison.js"
 						]
           },
           "configurations": {

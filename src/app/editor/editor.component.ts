@@ -1,9 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import {Production} from '../../assets/ts/production';
 import {ProductionContainer} from '../../assets/ts/productionContainer';
-//import { parser } from '../../assets/js/jison/wison';
-
-//var Parser = require("../../assets/js/wison.js");
+// import parser from '../../assets/js/jison/wison.js'; //Module not found: Error: Can't resolve 'fs' in '/home/cesar31/Jison/LL-Parser/src/assets/js/jison'
 
 declare var wison;
 
@@ -27,8 +25,10 @@ export class EditorComponent implements OnInit {
 	readText() {
 		if(this.text.trim() != "") {
 			try {
-				let initial = wison.parse(this.text);
-				console.log(`Simbolo inicial: ${initial}`);
+				let Production = wison.parse(this.text);
+				console.log(Production);
+
+				console.log(`Fila: ${Production.line}, Columna: ${Production.column}`);
 			}catch(error) {
 				console.log(error);
 			}

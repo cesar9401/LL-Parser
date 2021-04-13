@@ -66,6 +66,14 @@ inputNoSpace			[^\n\r\s\t\f]+
 
 /* Imports */
 %{
+	console.log("shit");
+
+	let Production = function(name, line, column) {
+		this.name = name;
+		this.line = line;
+		this.column = column;
+	}
+
 	// const Production = require('../../ts/production.js');
 	// import {ProductionContainer} from '../../ts/productionContainer.js';
 %}
@@ -80,7 +88,8 @@ inputNoSpace			[^\n\r\s\t\f]+
 wison_struct
 	: wison EOF
 		{
-			return $1;
+			let p = new Production($1, this._$.first_line, this._$.first_column);
+			return p;
 		}
 	;
 
