@@ -72,12 +72,12 @@
   }
 */
 var wison = (function(){
-var o=function(k,v,o,l){for(o=o||{},l=k.length;l--;o[k[l]]=v);return o},$V0=[1,20],$V1=[1,19],$V2=[2,14,24],$V3=[1,29],$V4=[1,28],$V5=[2,43,45],$V6=[1,42],$V7=[1,49],$V8=[28,32],$V9=[1,55],$Va=[2,29],$Vb=[1,56],$Vc=[1,57],$Vd=[9,28,41,42],$Ve=[14,44],$Vf=[28,34],$Vg=[9,34,41,42],$Vh=[1,72],$Vi=[1,73],$Vj=[25,28,44,52],$Vk=[28,52];
+var o=function(k,v,o,l){for(o=o||{},l=k.length;l--;o[k[l]]=v);return o},$V0=[1,20],$V1=[1,19],$V2=[2,14,24],$V3=[1,29],$V4=[1,28],$V5=[2,43,45],$V6=[1,42],$V7=[1,49],$V8=[28,32],$V9=[1,55],$Va=[2,29],$Vb=[1,56],$Vc=[1,57],$Vd=[9,28,41,42],$Ve=[14,44],$Vf=[28,34],$Vg=[9,34,41,42],$Vh=[28,53],$Vi=[2,38],$Vj=[1,73],$Vk=[1,74],$Vl=[25,28,44,53];
 var parser = {trace: function trace () { },
 yy: {},
-symbols_: {"error":2,"wison_struct":3,"wison":4,"EOF":5,"WISON":6,"LQM":7,"wison_body":8,"RQM":9,"lex_prod":10,"syntax_prod":11,"LEX":12,"LBRACE":13,"COLON":14,"make_term":15,"RBRACE":16,"SYNTX":17,"syntax_body":18,"make_non_t":19,"initial_sim":20,"make_prod":21,"terminal":22,"no_terminal":23,"TERM":24,"T_NAME":25,"ARROW":26,"opt":27,"SEMI_COLON":28,"make_concat":29,"term":30,"concat":31,"LPAREN":32,"term2":33,"RPAREN":34,"term_opt":35,"quant":36,"EXP_NUMS":37,"EXP_LETTERS":38,"term_option":39,"R_WORD":40,"TIMES":41,"PLUS":42,"NO_TERM":43,"NO_T_NAME":44,"INIT_SIMB":45,"prod":46,"ARROW_D":47,"prod_body":48,"make_t_n_prod":49,"or_prod_":50,"or_prod":51,"PLECA":52,"t_n_prod":53,"$accept":0,"$end":1},
-terminals_: {2:"error",5:"EOF",6:"WISON",7:"LQM",9:"RQM",12:"LEX",13:"LBRACE",14:"COLON",16:"RBRACE",17:"SYNTX",24:"TERM",25:"T_NAME",26:"ARROW",28:"SEMI_COLON",32:"LPAREN",34:"RPAREN",37:"EXP_NUMS",38:"EXP_LETTERS",40:"R_WORD",41:"TIMES",42:"PLUS",43:"NO_TERM",44:"NO_T_NAME",45:"INIT_SIMB",47:"ARROW_D",52:"PLECA"},
-productions_: [0,[3,2],[4,5],[8,2],[10,6],[11,8],[18,3],[15,1],[15,2],[19,1],[19,2],[22,5],[22,1],[27,1],[27,1],[29,1],[29,2],[31,3],[33,2],[35,1],[35,1],[35,1],[30,2],[39,1],[39,1],[39,1],[36,1],[36,1],[36,1],[36,0],[23,3],[23,1],[20,3],[21,1],[21,2],[46,4],[48,2],[50,1],[50,0],[51,2],[51,3],[49,1],[49,2],[53,1],[53,1]],
+symbols_: {"error":2,"wison_struct":3,"wison":4,"EOF":5,"WISON":6,"LQM":7,"wison_body":8,"RQM":9,"lex_prod":10,"syntax_prod":11,"LEX":12,"LBRACE":13,"COLON":14,"make_term":15,"RBRACE":16,"SYNTX":17,"syntax_body":18,"make_non_t":19,"initial_sim":20,"make_prod":21,"terminal":22,"no_terminal":23,"TERM":24,"T_NAME":25,"ARROW":26,"opt":27,"SEMI_COLON":28,"make_concat":29,"term":30,"concat":31,"LPAREN":32,"term2":33,"RPAREN":34,"term_opt":35,"quant":36,"EXP_NUMS":37,"EXP_LETTERS":38,"term_option":39,"R_WORD":40,"TIMES":41,"PLUS":42,"NO_TERM":43,"NO_T_NAME":44,"INIT_SIMB":45,"prod":46,"ARROW_D":47,"prod_body":48,"make_t_n_prod__":49,"or_prod_":50,"make_t_n_prod":51,"or_prod":52,"PLECA":53,"t_n_prod":54,"$accept":0,"$end":1},
+terminals_: {2:"error",5:"EOF",6:"WISON",7:"LQM",9:"RQM",12:"LEX",13:"LBRACE",14:"COLON",16:"RBRACE",17:"SYNTX",24:"TERM",25:"T_NAME",26:"ARROW",28:"SEMI_COLON",32:"LPAREN",34:"RPAREN",37:"EXP_NUMS",38:"EXP_LETTERS",40:"R_WORD",41:"TIMES",42:"PLUS",43:"NO_TERM",44:"NO_T_NAME",45:"INIT_SIMB",47:"ARROW_D",53:"PLECA"},
+productions_: [0,[3,2],[4,5],[8,2],[10,6],[11,8],[18,3],[15,1],[15,2],[19,1],[19,2],[22,5],[22,1],[27,1],[27,1],[29,1],[29,2],[31,3],[33,2],[35,1],[35,1],[35,1],[30,2],[39,1],[39,1],[39,1],[36,1],[36,1],[36,1],[36,0],[23,3],[23,1],[20,3],[21,1],[21,2],[46,4],[48,2],[49,1],[49,0],[50,1],[50,0],[52,2],[52,3],[51,1],[51,2],[54,1],[54,1]],
 performAction: function anonymous(yytext, yyleng, yylineno, yy, yystate /* action[1] */, $$ /* vstack */, _$ /* lstack */) {
 /* this == yyval */
 
@@ -85,8 +85,7 @@ var $0 = $$.length - 1;
 switch (yystate) {
 case 1:
 
-			let p = new Production($$[$0-1], this._$.first_line, this._$.first_column);
-			return p;
+			return this.$;
 		
 break;
 case 2:
@@ -94,14 +93,14 @@ case 2:
 			this.$ = $$[$0-2];
 		
 break;
-case 3:
+case 3: case 39:
 
 			this.$ = $$[$0];
 		
 break;
 case 4:
 
-			console.log(`Terminales: ${$$[$0-2]}`);
+			//console.log(`Terminales: ${$$[$0-2]}`);
 		
 break;
 case 5:
@@ -109,17 +108,18 @@ case 5:
 			this.$ = $$[$0-3];
 		
 break;
-case 6: case 36:
+case 6:
 
-			this.$ = $$[$0-1];
+			console.log(`Productions ${$$[$0]}`);
+			this.$ = new sintaxBody($$[$0-1], $$[$0-2], $$[$0]);
 		
 break;
-case 7:
+case 7: case 9: case 33: case 41: case 43:
 
 			this.$ = [$$[$0]];
 		
 break;
-case 8:
+case 8: case 10: case 34: case 44:
 
 			this.$ = [...$$[$0-1], $$[$0]];
 		
@@ -127,7 +127,7 @@ break;
 case 11:
 
 			this.$ = new Terminal($$[$0-3], $$[$0-1][0], $$[$0-1][1], this._$.first_line, this._$.first_column);
-			console.log(`Terminal: ${$$[$0-3]} ${$$[$0-1][0]} ${$$[$0-1][1]}`);
+			//console.log(`Terminal: ${$$[$0-3]} ${$$[$0-1][0]} ${$$[$0-1][1]}`);
 		
 break;
 case 12:
@@ -135,7 +135,7 @@ case 12:
 			console.log(`Error ${yytext}, linea ${this._$.first_line} columna: ${this._$.first_column}`);
 		
 break;
-case 14: case 23: case 24: case 25: case 26: case 27: case 28: case 43: case 44:
+case 14: case 23: case 24: case 25: case 26: case 27: case 28: case 37: case 45: case 46:
  this.$ = $$[$0]; 
 break;
 case 22:
@@ -147,36 +147,43 @@ break;
 case 30:
 
 		//console.log(`Definicion no terminal, linea ${this._$.first_line}, columna: ${this._$.first_column}`);
+		this.$ = new DefNoTerminal($$[$0-1], this._$.first_line, this._$.first_column);
 	
 break;
 case 32:
 
-		this.$ = $$[$0-1];
-		//console.log(`Definicion simbolo inicial, linea ${this._$.first_line}, columna: ${this._$.first_column}`);
+		this.$ = new DefNoTerminal($$[$0-1], this._$.first_line, this._$.first_column);
 	
 break;
 case 35:
 
-		//console.log(`Produccion: ${$$[$0-1]}`);
-		//console.log(`Definicion de produccion, linea ${this._$.first_line}, columna: ${this._$.first_column}`);
+		//console.log(`Production: ${$$[$0-3]} -> ${$$[$0-1]}`);
+		this.$ = new Production($$[$0-3], $$[$0-1], this._$.first_line, this._$.first_column);
 	
 break;
-case 41:
+case 36:
 
-			this.$ = [$$[$0]];
-			// console.log(this.$);
+			if($$[$0]) {
+				this.$ = [$$[$0-1], ...$$[$0]];
+			} else {
+				this.$ = [$$[$0-1]];
+			}
+		
+break;
+case 38:
+
+			this.$ = ["lambda"];
 		
 break;
 case 42:
 
-			// console.log($$[$0-1]);
-			this.$ = [...$$[$0-1], $$[$0]];
+			this.$ = [...$$[$0-2], $$[$0]];
 		
 break;
 }
 },
-table: [{3:1,4:2,6:[1,3]},{1:[3]},{5:[1,4]},{7:[1,5]},{1:[2,1]},{8:6,10:7,12:[1,8]},{9:[1,9]},{11:10,17:[1,11]},{13:[1,12]},{6:[1,13]},{9:[2,3]},{13:[1,14]},{14:[1,15]},{5:[2,2]},{13:[1,16]},{2:$V0,15:17,22:18,24:$V1},{14:[1,21]},{2:$V0,14:[1,22],22:23,24:$V1},o($V2,[2,7]),{25:[1,24]},o($V2,[2,12]),{2:$V3,18:25,19:26,23:27,43:$V4},{16:[1,30]},o($V2,[2,8]),{26:[1,31]},{14:[1,32]},{2:$V3,20:33,23:34,43:$V4,45:[1,35]},o($V5,[2,9]),{44:[1,36]},o($V5,[2,31]),{17:[2,4]},{27:37,29:38,30:39,31:40,32:$V6,37:[1,44],38:[1,45],39:41,40:[1,43]},{16:[1,46]},{21:47,44:$V7,46:48},o($V5,[2,10]),{44:[1,50]},{28:[1,51]},{28:[1,52]},{28:[2,13],31:53,32:$V6},{28:[2,14]},o($V8,[2,15]),{9:$V9,28:$Va,36:54,41:$Vb,42:$Vc},{25:[1,60],33:58,35:59,37:[1,61],38:[1,62]},o($Vd,[2,23]),o($Vd,[2,24]),o($Vd,[2,25]),{16:[1,63]},{14:[2,6],44:$V7,46:64},o($Ve,[2,33]),{47:[1,65]},{28:[1,66]},o($V5,[2,30]),o($V2,[2,11]),o($V8,[2,16]),{28:[2,22]},o($Vf,[2,26]),o($Vf,[2,27]),o($Vf,[2,28]),{34:[1,67]},{9:$V9,34:$Va,36:68,41:$Vb,42:$Vc},o($Vg,[2,19]),o($Vg,[2,20]),o($Vg,[2,21]),{9:[2,5]},o($Ve,[2,34]),{25:$Vh,44:$Vi,48:69,49:70,53:71},{44:[2,32]},o($V8,[2,17]),{34:[2,18]},{28:[1,74]},{25:$Vh,28:[2,38],44:$Vi,50:75,51:77,52:[1,78],53:76},o($Vj,[2,41]),o($Vj,[2,43]),o($Vj,[2,44]),o($Ve,[2,35]),{28:[2,36]},o($Vj,[2,42]),{28:[2,37],52:[1,79]},{25:$Vh,44:$Vi,49:80,53:71},{25:$Vh,44:$Vi,49:81,53:71},o($Vk,[2,39],{53:76,25:$Vh,44:$Vi}),o($Vk,[2,40],{53:76,25:$Vh,44:$Vi})],
-defaultActions: {4:[2,1],10:[2,3],13:[2,2],30:[2,4],39:[2,14],54:[2,22],63:[2,5],66:[2,32],68:[2,18],75:[2,36]},
+table: [{3:1,4:2,6:[1,3]},{1:[3]},{5:[1,4]},{7:[1,5]},{1:[2,1]},{8:6,10:7,12:[1,8]},{9:[1,9]},{11:10,17:[1,11]},{13:[1,12]},{6:[1,13]},{9:[2,3]},{13:[1,14]},{14:[1,15]},{5:[2,2]},{13:[1,16]},{2:$V0,15:17,22:18,24:$V1},{14:[1,21]},{2:$V0,14:[1,22],22:23,24:$V1},o($V2,[2,7]),{25:[1,24]},o($V2,[2,12]),{2:$V3,18:25,19:26,23:27,43:$V4},{16:[1,30]},o($V2,[2,8]),{26:[1,31]},{14:[1,32]},{2:$V3,20:33,23:34,43:$V4,45:[1,35]},o($V5,[2,9]),{44:[1,36]},o($V5,[2,31]),{17:[2,4]},{27:37,29:38,30:39,31:40,32:$V6,37:[1,44],38:[1,45],39:41,40:[1,43]},{16:[1,46]},{21:47,44:$V7,46:48},o($V5,[2,10]),{44:[1,50]},{28:[1,51]},{28:[1,52]},{28:[2,13],31:53,32:$V6},{28:[2,14]},o($V8,[2,15]),{9:$V9,28:$Va,36:54,41:$Vb,42:$Vc},{25:[1,60],33:58,35:59,37:[1,61],38:[1,62]},o($Vd,[2,23]),o($Vd,[2,24]),o($Vd,[2,25]),{16:[1,63]},{14:[2,6],44:$V7,46:64},o($Ve,[2,33]),{47:[1,65]},{28:[1,66]},o($V5,[2,30]),o($V2,[2,11]),o($V8,[2,16]),{28:[2,22]},o($Vf,[2,26]),o($Vf,[2,27]),o($Vf,[2,28]),{34:[1,67]},{9:$V9,34:$Va,36:68,41:$Vb,42:$Vc},o($Vg,[2,19]),o($Vg,[2,20]),o($Vg,[2,21]),{9:[2,5]},o($Ve,[2,34]),o($Vh,$Vi,{48:69,49:70,51:71,54:72,25:$Vj,44:$Vk}),{44:[2,32]},o($V8,[2,17]),{34:[2,18]},{28:[1,75]},{28:[2,40],50:76,52:77,53:[1,78]},o($Vh,[2,37],{54:79,25:$Vj,44:$Vk}),o($Vl,[2,43]),o($Vl,[2,45]),o($Vl,[2,46]),o($Ve,[2,35]),{28:[2,36]},{28:[2,39],53:[1,80]},o($Vh,$Vi,{51:71,54:72,49:81,25:$Vj,44:$Vk}),o($Vl,[2,44]),o($Vh,$Vi,{51:71,54:72,49:82,25:$Vj,44:$Vk}),o($Vh,[2,41]),o($Vh,[2,42])],
+defaultActions: {4:[2,1],10:[2,3],13:[2,2],30:[2,4],39:[2,14],54:[2,22],63:[2,5],66:[2,32],68:[2,18],76:[2,36]},
 parseError: function parseError (str, hash) {
     if (hash.recoverable) {
         this.trace(str);
@@ -426,6 +433,8 @@ _handle_error:
 }};
 
 
+	//const reqProd = require('../../ts/production.js');
+
 	/* Terminales */
 	let Terminal = function(name, value, quant, line, column) {
 		this.name = name;
@@ -454,6 +463,12 @@ _handle_error:
 		this.nonTerminal = nonTerminal;
 		this.initial = initial;
 		this.prods = prods;
+	}
+
+	let sintaxBody = function(initial, nonTerms, productions) {
+		this.initial = initial;
+		this.nonTerms = nonTerms;
+		this.productions = productions;
 	}
 
 /* generated by jison-lex 0.3.4 */
@@ -826,7 +841,7 @@ case 19:return 32;
 break;
 case 20:return 34;
 break;
-case 21:return 52;
+case 21:return 53;
 break;
 case 22:return 37;
 break;

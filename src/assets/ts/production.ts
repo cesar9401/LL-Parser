@@ -1,4 +1,9 @@
 export class Production {
-	constructor(name: string, line: number, column: number) {
+	name;
+	prod;
+	line;
+	column;
+
+	constructor(name: string, prod: [] ,line: number, column: number) {
 	}
 }

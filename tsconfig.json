@@ -16,7 +16,7 @@
       "es2018",
       "dom"
     ],
-		"allowJs": false
+		"allowJs": true
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false

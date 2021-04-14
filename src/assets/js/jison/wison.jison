@@ -67,6 +67,8 @@ inputNoSpace				[^\n\r\s\t\f]+
 /* Imports */
 %{
 
+	//const reqProd = require('../../ts/production.js');
+
 	/* Terminales */
 	let Terminal = function(name, value, quant, line, column) {
 		this.name = name;
@@ -97,6 +99,12 @@ inputNoSpace				[^\n\r\s\t\f]+
 		this.prods = prods;
 	}
 
+	let sintaxBody = function(initial, nonTerms, productions) {
+		this.initial = initial;
+		this.nonTerms = nonTerms;
+		this.productions = productions;
+	}
+
 %}
 
 /* associatios and precedence */
@@ -109,8 +117,7 @@ inputNoSpace				[^\n\r\s\t\f]+
 wison_struct
 	: wison EOF
 		{
-			let p = new Production($1, this._$.first_line, this._$.first_column);
-			return p;
+			return $$;
 		}
 	;
 
@@ -131,7 +138,7 @@ wison_body
 lex_prod
 	: LEX LBRACE COLON make_term COLON RBRACE
 		{
-			console.log(`Terminales: ${$4}`);
+			//console.log(`Terminales: ${$4}`);
 		}
 	;
 
@@ -145,7 +152,8 @@ syntax_prod
 syntax_body
 	: make_non_t initial_sim make_prod
 		{
-			$$ = $2;
+			console.log(`Productions ${$3}`);
+			$$ = new sintaxBody($2, $1, $3);
 		}
 	;
 
@@ -162,7 +170,13 @@ make_term
 
 make_non_t
 	: no_terminal
+		{
+			$$ = [$1];
+		}
 	| make_non_t no_terminal
+		{
+			$$ = [...$1, $2];
+		}
 	;
 
 /* terminales */
@@ -170,7 +184,7 @@ terminal
 	: TERM T_NAME ARROW opt SEMI_COLON
 		{
 			$$ = new Terminal($2, $4[0], $4[1], this._$.first_line, this._$.first_column);
-			console.log(`Terminal: ${$2} ${$4[0]} ${$4[1]}`);
+			//console.log(`Terminal: ${$2} ${$4[0]} ${$4[1]}`);
 		}
 	| error
 		{
@@ -236,57 +250,84 @@ no_terminal
 	: NO_TERM NO_T_NAME SEMI_COLON
 	{
 		//console.log(`Definicion no terminal, linea ${this._$.first_line}, columna: ${this._$.first_column}`);
+		$$ = new DefNoTerminal($2, this._$.first_line, this._$.first_column);
 	}
 	| error
 	;
 
+/* Simbolo inicial */
 initial_sim
 	: INIT_SIMB NO_T_NAME SEMI_COLON
 	{
-		$$ = $2;
-		//console.log(`Definicion simbolo inicial, linea ${this._$.first_line}, columna: ${this._$.first_column}`);
+		$$ = new DefNoTerminal($2, this._$.first_line, this._$.first_column);
 	}
 	;
 
 make_prod
 	: prod
+		{
+			$$ = [$1];
+		}
 	| make_prod prod
+		{
+			$$ = [...$1, $2];
+		}
 	;
 
 prod
 	: NO_T_NAME ARROW_D prod_body SEMI_COLON
 	{
-		//console.log(`Produccion: ${$3}`);
-		//console.log(`Definicion de produccion, linea ${this._$.first_line}, columna: ${this._$.first_column}`);
+		//console.log(`Production: ${$1} -> ${$3}`);
+		$$ = new Production($1, $3, this._$.first_line, this._$.first_column);
 	}
 	;
 
 prod_body
-	: make_t_n_prod or_prod_
+	: make_t_n_prod__ or_prod_
 		{
-			$$ = $1;
+			if($2) {
+				$$ = [$1, ...$2];
+			} else {
+				$$ = [$1];
+			}
+		}
+	;
+
+make_t_n_prod__
+	:	make_t_n_prod
+		{ $$ = $1; }
+	| /* lambda */
+		{
+			$$ = ["lambda"];
 		}
 	;
 
 or_prod_
 	: or_prod
-	|
+		{
+			$$ = $1;
+		}
+	| /* undefined */
 	;
 
 or_prod
-	: PLECA make_t_n_prod
-	| or_prod PLECA make_t_n_prod
+	: PLECA make_t_n_prod__
+		{
+			$$ = [$2];
+		}
+	| or_prod PLECA make_t_n_prod__
+		{
+			$$ = [...$1, $3];
+		}
 	;
 
 make_t_n_prod
 	: t_n_prod
 		{
 			$$ = [$1];
-			// console.log($$);
 		}
 	| make_t_n_prod t_n_prod
 		{
-			// console.log($1);
 			$$ = [...$1, $2];
 		}
 	;

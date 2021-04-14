@@ -1,8 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
-import {Production} from '../../assets/ts/production';
-import {ProductionContainer} from '../../assets/ts/productionContainer';
-// import parser from '../../assets/js/jison/wison.js'; //Module not found: Error: Can't resolve 'fs' in '/home/cesar31/Jison/LL-Parser/src/assets/js/jison'
+import { SintaxBody } from '../../assets/ts/sintaxBody';
+import { Grammar } from '../../assets/ts/grammar';
 
+// import parser from '../../assets/js/jison/wison.js'; //Module not found: Error: Can't resolve 'fs' in '/home/cesar31/Jison/LL-Parser/src/assets/js/jison'
 declare var wison;
 
 @Component({
@@ -13,20 +13,26 @@ declare var wison;
 export class EditorComponent implements OnInit {
 
 	title = 'Editor de Texto';
+	sintax: SintaxBody;
+	grammar: Grammar;
 
 	@Input() text: string;
 
 	constructor() { }
 
 	ngOnInit(): void {
-		console.log(wison);
+		//console.log(wison);
 	}
 
 	readText() {
 		if(this.text.trim() != "") {
 			try {
-				let Production = wison.parse(this.text);
-				console.log(Production);
+				this.sintax = wison.parse(this.text);
+
+				console.log(this.sintax);
+				this.grammar = new Grammar();
+				this.grammar.constuctor(this.sintax);
+
 			}catch(error) {
 				console.log(error);
 			}
