@@ -67,7 +67,10 @@ inputNoSpace				[^\n\r\s\t\f]+
 /* Imports */
 %{
 
-	//const reqProd = require('../../ts/production.js');
+	// const reqProd = require('../../ts/production.js');
+	// const prodct = require('../../ts/gramProduction');
+
+	// import { GramProduction } from '../../ts/gramProduction';
 
 	/* Terminales */
 	let Terminal = function(name, value, quant, line, column) {
