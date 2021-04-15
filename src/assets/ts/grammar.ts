@@ -88,6 +88,13 @@ export class Grammar {
 	}
 
 	/**
+	 * Obtener produccion segun nombre
+	 */
+	getProduction(name: string) {
+		return this.productions.find(p => p.name === name);
+	}
+
+	/**
 	 * Obtener primeros
 	 */
 	getFirsts(prod: GramProduction) {
@@ -102,19 +109,17 @@ export class Grammar {
 				// Obtener primeros de siguiente produccion
 				prod.setFirst(this.getFirstsRecursive(p));
 
+				// Verificar si p es anulable
+				if(p.nullable) {
+
+				}
+
 			} else {
 				if(val !== 'lambda') {
 					prod.setFirst([val]);
 				}
 			}
 		});
-	}
-
-	/**
-	 * Obtener produccion segun nombre
-	 */
-	getProduction(name: string) {
-		return this.productions.find(p => p.name === name);
 	}
 
 	/**

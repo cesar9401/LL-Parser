@@ -1,11 +1,9 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { SintaxBody } from '../../assets/ts/sintaxBody';
 import { Grammar } from '../../assets/ts/grammar';
-
-// import { Jison } from '../../../node_modules/jison/lib/jison';
+import { GramProduction } from '../../assets/ts/gramProduction';
 
 import { Jison } from 'jison';
-
 
 // import parser from '../../assets/js/jison/wison.js'; //Module not found: Error: Can't resolve 'fs' in '/home/cesar31/Jison/LL-Parser/src/assets/js/jison'
 declare var wison;
@@ -20,8 +18,13 @@ export class EditorComponent implements OnInit {
 	title = 'Editor de Texto';
 	sintax: SintaxBody;
 	grammar: Grammar;
+	productions: GramProduction [];
 
+	// Recibimos texto
 	@Input() text: string;
+
+	// Enviamos producciones
+	@Output() setProd: EventEmitter<GramProduction []> = new EventEmitter();
 
 	constructor() { }
 
@@ -34,10 +37,15 @@ export class EditorComponent implements OnInit {
 		if(this.text.trim() != "") {
 			try {
 				this.sintax = wison.parse(this.text);
-
 				console.log(this.sintax);
 				this.grammar = new Grammar();
 				this.grammar.constuctor(this.sintax);
+
+				// Recuperar producciones con anulables, primeros y siguientes
+				this.productions = this.grammar.productions;
+
+				// Emitimos las producciones
+				this.setProd.emit(this.productions);
 
 			}catch(error) {
 				console.log(error);

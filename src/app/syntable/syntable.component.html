@@ -1,0 +1,44 @@
+<section id="sintax_table">
+	<div class="container my-4">
+		<div class="row">
+			<div class="col text-center">
+				<h1 class="text-danger">No Terminales</h1>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col text-center">
+				<h3>Primeros y Siguientes</h3>
+			</div>
+		</div>
+
+	<div class="row">
+		<div class="col">
+			<table class="table table-bordered">
+				<thead>
+					<tr>
+						<th scope="col"></th>
+						<th scope="col">Anulable</th>
+						<th scope="col">Primeros</th>
+						<th scope="col">Siguientes</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr *ngFor="let prod of prods">
+						<th scope="row"><h4><span class="badge bg-dark">{{prod.name}}</span></h4></th>
+						<td>
+							<span class="badge bg-danger fs-6">{{prod.nullable}}</span>
+						</td>
+						<td class="text-wrap">
+							<span class="badge bg-success mx-1 fs-6" *ngFor="let f of prod.firsts">{{f}}</span>
+						</td>
+						<td class="text-wrap">
+							<span class="badge bg-warning text-dark mx-1 fs-6" *ngFor="let n of prod.follows">{{n}}</span>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
+</section>
