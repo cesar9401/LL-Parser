@@ -2,7 +2,10 @@ import { Component, OnInit, Input } from '@angular/core';
 import { SintaxBody } from '../../assets/ts/sintaxBody';
 import { Grammar } from '../../assets/ts/grammar';
 
-import { Jison } from '../../../node_modules/jison/lib/jison';
+// import { Jison } from '../../../node_modules/jison/lib/jison';
+
+import { Jison } from 'jison';
+
 
 // import parser from '../../assets/js/jison/wison.js'; //Module not found: Error: Can't resolve 'fs' in '/home/cesar31/Jison/LL-Parser/src/assets/js/jison'
 declare var wison;

@@ -2,12 +2,15 @@ import { Production } from './production';
 
 export class GramProduction {
 	name: string;
-	prod: [];
+	prod: [string[]];
 	line: number;
 	column: number;
 
 	firsts: string [];
 	follows: string [];
+	nullable: boolean;
+	checkNullable: boolean;
+	checkFollow: boolean;
 
 	constructor(prod: Production) {
 		this.name = prod.name;
@@ -17,6 +20,9 @@ export class GramProduction {
 
 		this.firsts = [];
 		this.follows = [];
+		this.nullable = false;
+		this.checkNullable = false;
+		this.checkFollow = false;
 	}
 
 	setFirst(values: string[]) {
@@ -27,9 +33,11 @@ export class GramProduction {
 		})
 	}
 
-	setFollow(value: string) {
-		if(!this.follows.includes(value)) {
-			this.follows.push(value);
-		}
+	setFollow(values: string[]) {
+		values.forEach(value => {
+			if(!this.follows.includes(value)) {
+				this.follows.push(value);
+			}
+		});
 	}
 }
