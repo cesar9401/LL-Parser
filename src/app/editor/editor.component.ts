@@ -51,7 +51,7 @@ export class EditorComponent implements OnInit {
 
 			}catch(error) {
 				this.alert = true;
-				console.log(error);
+				// console.log(error);
 			}
 		}
 	}

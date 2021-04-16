@@ -64,8 +64,10 @@ export class SynTable {
 					let value: string = this.getProductionString(array[i]);
 					value = `${prod.name} ${this.ARROW} ${value}`;
 
-					// Agregar a la body
-					body[index] = [...body[index], value];
+					if(!body[index].includes(value)) {
+						// Agregar a body
+						body[index] = [...body[index], value];
+					}
 
 					// Agregar conflictos
 					if(body[index].length === 2) {
@@ -89,7 +91,10 @@ export class SynTable {
 							// Crear produccion S0 -> S1...
 							value = `${prod.name} ${this.ARROW} ${value}`;
 
-							body[index] = [...body[index], value];
+							if(!body[index].includes(value)) {
+								// Agregar a body
+								body[index] = [...body[index], value];
+							}
 
 							// Agregar conflictos
 							if(body[index].length === 2) {
@@ -99,13 +104,13 @@ export class SynTable {
 						});
 					}
 				});
-				console.log(`Null ${prod.name}`);
+				// console.log(`Null ${prod.name}`);
 			}
 
 			// Agregar produccion a la tabla
 			this.table.push(body);
 		});
-		console.log(this.table);
+		//console.log(this.table);
 	}
 
 	/**

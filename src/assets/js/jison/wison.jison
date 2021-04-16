@@ -189,10 +189,10 @@ terminal
 			$$ = new Terminal($2, $4[0], $4[1], this._$.first_line, this._$.first_column);
 			//console.log(`Terminal: ${$2} ${$4[0]} ${$4[1]}`);
 		}
-	| error
-		{
-			console.log(`Error ${yytext}, linea ${this._$.first_line} columna: ${this._$.first_column}`);
-		}
+	// | error
+	// 	{
+	// 		console.log(`Error ${yytext}, linea ${this._$.first_line} columna: ${this._$.first_column}`);
+	// 	}
 	;
 
 opt
@@ -255,7 +255,7 @@ no_terminal
 		//console.log(`Definicion no terminal, linea ${this._$.first_line}, columna: ${this._$.first_column}`);
 		$$ = new DefNoTerminal($2, this._$.first_line, this._$.first_column);
 	}
-	| error
+	// | error
 	;
 
 /* Simbolo inicial */
