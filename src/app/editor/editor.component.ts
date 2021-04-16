@@ -19,6 +19,7 @@ export class EditorComponent implements OnInit {
 	sintax: SintaxBody;
 	grammar: Grammar;
 	productions: GramProduction [];
+	alert: boolean;
 
 	// Recibimos texto
 	@Input() text: string;
@@ -29,6 +30,7 @@ export class EditorComponent implements OnInit {
 	constructor() { }
 
 	ngOnInit(): void {
+		this.alert = false;
 		// console.log(wison);
 		// console.log(Jison.Parser);
 	}
@@ -37,7 +39,7 @@ export class EditorComponent implements OnInit {
 		if(this.text.trim() != "") {
 			try {
 				this.sintax = wison.parse(this.text);
-				console.log(this.sintax);
+				// console.log(this.sintax);
 				this.grammar = new Grammar();
 				this.grammar.constuctor(this.sintax);
 
@@ -48,8 +50,13 @@ export class EditorComponent implements OnInit {
 				this.setProd.emit(this.productions);
 
 			}catch(error) {
+				this.alert = true;
 				console.log(error);
 			}
 		}
+	}
+
+	dismissing() {
+		this.alert = false;
 	}
 }

@@ -1,5 +1,11 @@
-<section id="code-editor">
-	<div class="container">
+<section id="code-editor" class="mb-4">
+	<div class="container my-4">
+
+		<div *ngIf="alert" class="alert alert-danger alert-dismissible fade show" role="alert">
+			<strong>Error en la Sintaxis.</strong> Verifique que el archivo este escrito correctamente.
+			<button (click)="dismissing()" type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+		</div>
+
 		<div class="row">
 			<div class="col">
 				<h3 class="text-center text-secondary">{{title}}</h3>
@@ -26,7 +32,7 @@
 						</div>
 						<div class="row text-center">
 							<div class="col-4 offset-4 d-grid">
-								<button type="button" (click)="readText()" class="btn btn-primary btn-lg btn-block">Compilar</button>
+								<button type="button" (click)="readText()" class="btn btn-primary btn-lg btn-block mb-4">Compilar</button>
 							</div>
 						</div>
 						<!--

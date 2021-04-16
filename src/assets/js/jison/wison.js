@@ -110,7 +110,7 @@ case 5:
 break;
 case 6:
 
-			console.log(`Productions ${$$[$0]}`);
+			// console.log(`Productions ${$$[$0]}`);
 			this.$ = new sintaxBody($$[$0-1], $$[$0-2], $$[$0]);
 		
 break;

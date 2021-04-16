@@ -23,4 +23,8 @@ export class AppComponent {
 		this.editing = false;
 		//console.log(`Recibimos ${prods}`);
 	}
+
+	setEditing() {
+		this.editing = true;
+	}
 }

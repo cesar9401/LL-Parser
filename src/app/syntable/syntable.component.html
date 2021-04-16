@@ -1,44 +1,113 @@
-<section id="sintax_table">
+<section id="sintax_table" class="mb-4">
 	<div class="container my-4">
 		<div class="row">
 			<div class="col text-center">
-				<h1 class="text-danger">No Terminales</h1>
+				<h2 class="text-danger">Tabla de An&aacute;lisis LL(1)</h2>
+			</div>
+		</div>
+
+		<!--Producciones-->
+		<div class="row mt-4">
+			<div class="col text-center">
+				<h2>Producciones</h2>
+			</div>
+		</div>
+
+		<div class="row my-4">
+			<div class="col text-center">
+				<ul class="list-group">
+					<div *ngFor="let prod of prods">
+						<li *ngFor="let pr of prod.prod" class="list-group-item fs-3 font-monospace">
+							<span class="mx-2">{{prod.name}}</span>
+							<span class="mx-2 fs-2">&#10142;</span>
+							<span *ngFor="let p of pr" class="mx-2">{{p}}</span>
+						</li>
+					</div>
+				</ul>
+			</div>
+		</div>
+
+		<!--Tabla de primeros y siguientes-->
+		<div class="row mt-4">
+			<div class="col text-center">
+				<h2>Primeros y Siguientes</h2>
+			</div>
+		</div>
+
+		<div class="row my-4">
+			<div class="col">
+				<table class="table table-bordered text-center">
+					<thead>
+						<tr class="fs-5">
+							<th scope="col"></th>
+							<th scope="col">Anulable</th>
+							<th scope="col">Primeros</th>
+							<th scope="col">Siguientes</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr *ngFor="let prod of prods">
+							<th scope="row"><h4><span class="badge bg-dark">{{prod.name}}</span></h4></th>
+							<td>
+								<span class="badge bg-danger fs-6">{{prod.nullable}}</span>
+							</td>
+							<td class="text-wrap">
+								<span class="badge bg-success mx-1 fs-6" *ngFor="let f of prod.firsts">{{f}}</span>
+							</td>
+							<td class="text-wrap">
+								<span class="badge bg-warning text-dark mx-1 fs-6" *ngFor="let n of prod.follows">{{n}}</span>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+
+		<!--Tabla de analisis sintactico-->
+		<div class="row mt-4">
+			<div class="col text-center">
+				<h2>Tabla de An&aacute;lisis Sint&aacute;ctico</h2>
+			</div>
+		</div>
+	</div>
+
+	<div class="container mb-4">
+		<div class="row my-4">
+			<div class="col">
+				<table class="table table-bordered text-center">
+					<tbody>
+						<tr *ngFor="let value of table; index as i">
+							<td class="text-wrap" *ngFor="let val of value">
+								<span class="badge bg-dark fs-6 m-1" *ngFor="let v of val; index as i">{{v}}</span>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+
+	<!--Resultados-->
+	<div class="container my-4">
+		<div class="row">
+			<div class="col text-center">
+				<h2>Resultados</h2>
+			</div>
+		</div>
+
+		<div class="row my-4">
+			<div class="col text-center">
+				<ul class="list-group fs-4">
+					<li *ngFor="let c of results" class="list-group-item">{{c}}</li>
+				</ul>
 			</div>
 		</div>
 
 		<div class="row">
-			<div class="col text-center">
-				<h3>Primeros y Siguientes</h3>
+			<div [ngSwitch]="results.length" class="col text-center">
+				<h3 *ngSwitchCase="0"><span class="badge bg-secondary">La gram&aacute;tica es LL(1).</span></h3>
+				<h3 *ngSwitchDefault><span class="badge bg-secondary">Debido a conflictos encontrados, la gram&aacute;tica no es LL(1).</span></h3>
 			</div>
 		</div>
-
-	<div class="row">
-		<div class="col">
-			<table class="table table-bordered">
-				<thead>
-					<tr>
-						<th scope="col"></th>
-						<th scope="col">Anulable</th>
-						<th scope="col">Primeros</th>
-						<th scope="col">Siguientes</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr *ngFor="let prod of prods">
-						<th scope="row"><h4><span class="badge bg-dark">{{prod.name}}</span></h4></th>
-						<td>
-							<span class="badge bg-danger fs-6">{{prod.nullable}}</span>
-						</td>
-						<td class="text-wrap">
-							<span class="badge bg-success mx-1 fs-6" *ngFor="let f of prod.firsts">{{f}}</span>
-						</td>
-						<td class="text-wrap">
-							<span class="badge bg-warning text-dark mx-1 fs-6" *ngFor="let n of prod.follows">{{n}}</span>
-						</td>
-					</tr>
-				</tbody>
-			</table>
-		</div>
 	</div>
-</div>
 </section>

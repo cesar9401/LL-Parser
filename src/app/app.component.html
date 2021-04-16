@@ -1,16 +1,19 @@
+<!--Navbar-->
+<nav class="navbar navbar-light bg-light">
+	<div class="container">
+		<a (click)="setEditing()" href="#" class="navbar-brand">Nuevo an&aacute;lisis</a>
+	</div>
+</nav>
+
 <div class="container mt-4">
 	<div class="row">
 		<div class="col">
 			<h1 class="text-center text-danger fs-1">{{title}}</h1>
 		</div>
 	</div>
-
-	<div class="row">
-		<div class="col">
-			<app-upload (setData)="getData($event)"></app-upload>
-		</div>
-	</div>
 </div>
+
+<app-upload *ngIf="editing" (setData)="getData($event)"></app-upload>
 
 <app-editor *ngIf="editing" [text]="texto" (setProd)="getProductions($event)"></app-editor>
 

@@ -155,7 +155,7 @@ syntax_prod
 syntax_body
 	: make_non_t initial_sim make_prod
 		{
-			console.log(`Productions ${$3}`);
+			// console.log(`Productions ${$3}`);
 			$$ = new sintaxBody($2, $1, $3);
 		}
 	;

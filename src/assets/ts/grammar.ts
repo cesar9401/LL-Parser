@@ -33,9 +33,9 @@ export class Grammar {
 			this.getFollows(p);
 		});
 
-		this.productions.forEach(p => {
-			console.log(p);
-		});
+		// this.productions.forEach(p => {
+		// 	console.log(p);
+		// });
 	}
 
 	verifyGrammar() {
@@ -99,26 +99,33 @@ export class Grammar {
 	 */
 	getFirsts(prod: GramProduction) {
 		this.current = prod.name;
+		//let value: [string[]] = prod.prod;
+
 		prod.prod.forEach(value => {
-			let val: string = value[0];
+			let j: number = 0;
+			let val: string = value[j];
+			do {
+				if(val.substr(0, 2) === '%_') {
+					/* Obtener primeros de produccion */
+					let p = this.getProduction(val);
 
-			if(val.substr(0, 2) === '%_') {
-				/* Obtener primeros de produccion */
-				let p = this.getProduction(val);
+					// Obtener primeros de siguiente produccion
+					prod.setFirst(this.getFirstsRecursive(p));
 
-				// Obtener primeros de siguiente produccion
-				prod.setFirst(this.getFirstsRecursive(p));
+					// Verificar si p es anulable
+					if(!p.nullable) {
+						break;
+					}
 
-				// Verificar si p es anulable
-				if(p.nullable) {
-
-				}
-
-			} else {
-				if(val !== 'lambda') {
+				} else if(val !== 'lambda') {
 					prod.setFirst([val]);
+					break;
 				}
-			}
+
+				j++;
+				val = value[j];
+
+			}while(val);
 		});
 	}
 
@@ -131,19 +138,29 @@ export class Grammar {
 		let first: string[] = [];
 
 		p.prod.forEach(value => {
-			let val: string = value[0];
+			let j: number = 0;
+			let val: string = value[j];
 
-			if(val.substr(0, 2) === '%_') {
-				if(val !== p.name && val !== this.current) {
+			do {
+				if(val.substr(0, 2) === '%_') {
 					let prod = this.getProduction(val);
-					first = [...first, ...this.getFirstsRecursive(prod)];
+					if(val !== p.name && val !== this.current) {
+						// let prod = this.getProduction(val);
+						first = [...first, ...this.getFirstsRecursive(prod)];
+					}
+
+					if(!prod.nullable) {
+						break;
+					}
+				} else if(val !== 'lambda') {
+					first.push(val);
+					break;
 				}
 
-			} else {
-				if(val !== 'lambda') {
-					first.push(val);
-				}
-			}
+				j++;
+				val = value[j];
+			}while(val);
+
 		});
 		return first;
 	}
@@ -154,7 +171,7 @@ export class Grammar {
 	 */
 	getNullable(p: GramProduction) {
 		this.current = p.name;
-		console.log(`current ${this.current}`);
+		// console.log(`current ${this.current}`);
 
 		let include: boolean = false;
 		for(let value of p.prod) {
@@ -179,7 +196,7 @@ export class Grammar {
 	 */
 	getNullableRecursive(p: GramProduction) {
 		let nullable: boolean = false;
-		console.log(p.name);
+		// console.log(p.name);
 
 		for(let value of p.prod) {
 			if(value.includes('lambda')) {
@@ -226,7 +243,7 @@ export class Grammar {
 	getFollows(p: GramProduction) {
 		let name: string = p.name;
 		this.current = name;
-		console.log(`Follow -> ${name}`);
+		// console.log(`Follow -> ${name}`);
 
 		this.productions.forEach(prd => {
 			prd.prod.forEach(value => {
@@ -271,7 +288,7 @@ export class Grammar {
 	getFollowsRecursive(p: GramProduction) {
 		let next: string[] = [...p.follows]
 		let name: string = p.name;
-		console.log(`FollowRecursive: ${name}`);
+		//console.log(`FollowRecursive: ${name}`);
 
 		this.productions.forEach(prd => {
 			prd.prod.forEach(value => {
